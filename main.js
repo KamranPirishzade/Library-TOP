@@ -49,13 +49,12 @@ function updateLibrary() {
     deleteBtn.classList.add("delete");
     bookDiv.appendChild(deleteBtn);
     const toggleRead = document.createElement("button");
-    toggleRead.textContent = book.read ? "Not read yet" : "I read it" ;
+    toggleRead.textContent = book.read ? "Not read yet" : "I read it";
     toggleRead.addEventListener("click", (e) => {
       book.read = !book.read;
       updateLibrary();
     });
     toggleRead.classList.add("toggle");
-    bookDiv.appendChild(deleteBtn);
     bookDiv.appendChild(toggleRead);
     document.querySelector(".books").appendChild(bookDiv);
   });

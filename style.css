@@ -27,26 +27,46 @@ body {
   gap: 3rem;
 }
 
-.books > * {
-  /* flex: 1; */
-}
-
 .book {
   text-align: center;
   height: 300px;
   background-color: bisque;
   min-width: 250px;
-  border-left: 10px solid brown;
-  border-top-right-radius: 1rem;
-  border-bottom-right-radius: 2rem;
+  border-left: 15px solid brown;
+  border-top-right-radius: 0.7rem;
+  border-bottom-right-radius: 0.7rem;
   display: flex;
   justify-content: center;
   gap: 1rem;
   flex-direction: column;
-  box-shadow: 5px 5px 0px 3px white;
+  box-shadow: 5px 5px 0px 2px white;
 }
 
-.add {
+.book h1 {
+  font-size: 2.5rem;
+}
+.book h3 {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+.book button {
+  align-self: center;
+  min-width: 100px;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  border-radius: 1.5rem;
+  border: none;
+}
+
+.toggle:hover {
+  background-color: rgb(21, 81, 21);
+  color: white;
+}
+
+.add,
+.showBtn,
+.close {
   outline: none;
   border: none;
   padding: 1rem 1.5rem;
@@ -55,9 +75,17 @@ body {
   font-size: 24px;
   transition: all 0.3s ease;
   outline: 1px solid black;
+  border-radius: 1rem;
 }
 
-.add:hover {
+.close:hover,
+.delete:hover {
+  background-color: red;
+  color: white;
+}
+
+.add:hover,
+.showBtn:hover {
   background-color: brown;
   color: white;
   outline-color: brown;
@@ -92,4 +120,26 @@ fieldset > div input:not([type="radio"]) {
 .read {
   display: flex;
   gap: 1rem;
+}
+
+#formModal {
+  padding: 20px;
+  background: navy;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border: none;
+  padding: 2rem;
+  border-radius: 2rem;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
 }

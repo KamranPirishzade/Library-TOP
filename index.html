@@ -7,12 +7,19 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <h1 class="heading">Library</h1>
-    </header>
-    <div class="books"></div>
-    <button class="showBtn" type="button">Add book</button>
-    <div class="overlay"></div>
+    <main>
+      <header>
+        <h1 class="heading">Library</h1>
+      </header>
+      <div class="booksContainer">
+        <div class="books"></div>
+        <button class="showBtn" type="button">Add book</button>
+      </div>
+
+      <div class="overlay"></div>
+      <small class="bookCount"></small>
+    </main>
+
     <dialog id="formModal">
       <form action="POST">
         <fieldset>

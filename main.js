@@ -1,15 +1,33 @@
+class Book {
+  static numberOfBooks = 0;
+
+  constructor(author, title, pages, read) {
+    this._author = author;
+    this.id = crypto.randomUUID();
+    this.title = title;
+    this.pages = pages;
+    this.read = read;
+    Book.numberOfBooks += 1;
+  }
+
+  get author() {
+    return "Author: " + this._author;
+  }
+
+  set author(authorName) {
+    if (authorName.length > 3) {
+      this.author = authorName;
+    } else {
+      alert("Author name should at least more than 3 chars");
+    }
+  }
+}
+
 let myLibrary = [
   new Book("J.R.R Tolkien", "The Hobbit", 295, false),
   new Book("J.R.R Tolkien", "The Hobbit", 295, false),
   new Book("J.R.R Tolkien", "The Hobbit", 295, false),
 ];
-function Book(author, title, pages, read) {
-  this.id = crypto.randomUUID();
-  this.author = author;
-  this.title = title;
-  this.pages = pages;
-  this.read = read;
-}
 
 let showFormBtn = document.querySelector(".showBtn");
 let modal = document.querySelector("#formModal");
@@ -29,6 +47,8 @@ function addBookToLibrary(form) {
 }
 
 function updateLibrary() {
+  document.querySelector(".bookCount").textContent =
+    "Number of books: " + Book.numberOfBooks;
   document.querySelector(".books").replaceChildren();
   myLibrary.forEach((book) => {
     let bookDiv = document.createElement("div");
@@ -38,7 +58,7 @@ function updateLibrary() {
   <h1>${book.title}</h1>
   <h3>${book.author}</h3>
   <p>${book.read ? "Already read" : "Not read yet"}</p>
-  <p>Pages: ${book.pages}</p>
+  <p>Pages: ${book.pages + " "}</p>
   `;
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
